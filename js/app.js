@@ -21,12 +21,12 @@ app.config(function ($routeProvider) {
     // ----------------------------------------
     // BOOK DETAILS  ------------------
     // ----------------------------------------
-    .when('/books/:id',{
-    	// maps the URL /books/:id to the controller BookController and the template views/book.html
-    	// visit localhost... click on a book. A detail page about that book should appear
-    	controller: 'BookController', 
-    	templateUrl: 'views/book.html' 
-    })
+	    .when('/books/:bookId',{
+	    	// maps the URL /books/:id to the controller BookController and the template views/book.html
+	    	// visit localhost... click on a book. A detail page about that book should appear
+	    	controller: 'BookController', 
+	    	templateUrl: 'views/book.html' 
+	    })
     // ----------------------------------------
     // END BOOK DETAILS  ------------------
     // ----------------------------------------
@@ -35,12 +35,13 @@ app.config(function ($routeProvider) {
     // CHAPTER DETAILS  ------------------
     // ----------------------------------------
     	// specifically first chapter
-    .when('/books/:bookId/chapters/:chapterId',{
-    	// maps the URL /books/:bookId/chapters/:chapterId to the controller BookController and the template views/chapter.html
-    	// visit localhost... click on a book then go inside. A detail page about that chapter should appear
-    	controller: 'ChapterController', 
-    	templateUrl: 'views/chapter.html' 
-    })
+    	// WARNING:  when using :bookId it didn't work...  switch it back to using :id as you did before for the book details
+	    .when('/books/:bookId/chapters/:chapterId',{
+	    	// maps the URL /books/:bookId/chapters/:chapterId to the controller BookController and the template views/chapter.html
+	    	// visit localhost... click on a book then go inside. A detail page about that chapter should appear
+	    	controller: 'ChapterController', 
+	    	templateUrl: 'views/chapter.html' 
+	    })
     // ----------------------------------------
     // END CHAPTER DETAILS  ------------------
     // ----------------------------------------

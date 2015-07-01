@@ -8,30 +8,21 @@
   * Under it, access the array of chapters inside $scope.book, and get a specific chapter in the array by using its index $routeParams.chapterId. Store the specific chapter into $scope.chapter.
   * Finish the template in views/chapter.html to display a chapter. Looking at the format of the data in books API given above, display the book title, book author, chapter title, and chapter paragraphs.
   * View the result in the browser. When you click on the Read button, a view is constructed by injecting views/chapter.html into the <div ng-view></div> in index.html. When you click on the Next and Back buttons, you navigate from chapter to chapter.
-* 
+*
+* WARNING:  the URL creation variables must be located within 'books.success' or else none of the URL links will work!
 */
 
 app.controller('ChapterController', ['$scope', 'books', '$routeParams', function($scope, books, $routeParams) {
+  
   books.success(function(data) {
+    // $scope.SERVICENAMEOROTHER = data[$routeParams.id];
 
-    console.log(data);
-    // looks like Object {bookId: "NaN", chapterId: "0"}
-    console.log($routeParams);
-    
-    // access the correct book like you did in the book controller
-    // get a specific book from the books API by using its index, just as you did in BookController. Store the specific book into $scope.book
-    // hmm... have to use bookId
+    // console.log(data);
+    // console.log($routeParams);
+
     // $scope.book = data[$routeParams.id];
-    $scope.book = data[$routeParams.id];
-    // $scope.currentBook = data[$routeParams.id];
     $scope.book = data[$routeParams.bookId];
-    console.log($scope.book);
-    console.log($routeParams.id);
-    console.log($routeParams.bookId);
-
-    // This is where you access the correct data
-    // Under it, access the array of chapters inside $scope.book, and get a specific chapter in the array by using its index $routeParams.chapterId. Store the specific chapter into $scope.chapter.
-    // apparently you can use a different name other that .id to get the ID of the property... and Angular will figure it out?
+    // console.log($scope.book);
 
     $scope.chapter = $scope.book.chapters[$routeParams.chapterId];
 
@@ -39,10 +30,26 @@ app.controller('ChapterController', ['$scope', 'books', '$routeParams', function
     if($routeParams.chapterId >= $scope.book.chapters.length - 1) {
       $scope.nextChapterIndex = "#";
     }
+
+    /* 
+    * WARNING:  the URL creation variables must be located within 'books.success' or else none of the URL links will work!
+    * 
+    */
+
+    // ----------------------------------------
+    // URL CREATION  ------------------
+    // ----------------------------------------
+      // Using these properties to create the URLs in line 1 and line 11 of view/chapter.html
+      // WARNING:  when using :bookId it didn't work...  switch it back to using :id as you did before for the book details
+      $scope.currentBookIndex = parseInt($routeParams.bookId);
+      // $scope.currentBookIndex = parseInt($routeParams.id);
+
+      $scope.currentChapterIndex = parseInt($routeParams.chapterId);
+      $scope.nextChapterIndex = $scope.currentChapterIndex + 1;
+    // ----------------------------------------
+    // END URL CREATION  ------------------
+    // ----------------------------------------
   });
 
-  // Using these properties to create the URLs in line 1 and line 11 of view/chapter.html
-  $scope.currentBookIndex = parseInt($routeParams.bookId);
-  $scope.currentChapterIndex = parseInt($routeParams.chapterId);
-  $scope.nextChapterIndex = $scope.currentChapterIndex + 1;
+  
 }]);

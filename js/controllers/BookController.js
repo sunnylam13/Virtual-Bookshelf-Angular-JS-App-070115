@@ -15,9 +15,11 @@ app.controller('BookController', ['$scope', 'books' ,'$routeParams', function($s
   
 	books.success(function(data) {
 		// since there's no nesting this should be fine
-	  $scope.book = data[$routeParams.id];
-	  // $scope.book = data[$routeParams.bookId];
-	  console.log(data[$routeParams.id]);
+	  // $scope.book = data[$routeParams.id];
+	  $scope.book = data[$routeParams.bookId];
+	  // $scope.book = data[$routeParams.bookId]; // this doesn't work
+	  // console.log(data[$routeParams.id]);
+	  // console.log($routeParams);
 	});
 
   // Using this property to create the URL in line 9 of views/book.html
