@@ -17,12 +17,12 @@ app.config(function ($routeProvider) {
       controller: 'BookshelfController', 
       templateUrl: 'views/bookshelf.html' 
     }) 
-    // .when('/photos/:id',{
-    // 	// maps the URL /photos/:id to the controller PhotoController and the template views/photo.html
-    // 	// visit localhost... click on a photo. A detail page about that photo should appear
-    // 	controller: 'PhotoController', 
-    // 	templateUrl: 'views/photo.html' 
-    // })
+    .when('/books/:id',{
+    	// maps the URL /photos/:id to the controller BookController and the template views/book.html
+    	// visit localhost... click on a book. A detail page about that book should appear
+    	controller: 'BookController', 
+    	templateUrl: 'views/book.html' 
+    })
     .otherwise({ 
       redirectTo: '/books' 
     }); 
