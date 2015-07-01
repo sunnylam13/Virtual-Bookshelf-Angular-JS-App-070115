@@ -14,7 +14,7 @@
   <div class="book col-md-3" ng-repeat="book in myBooks">
     <a href="#/books/{{$index}}">
       <!-- don't use the regular src, use ng-src -->
-      <img src="" alt="Book Cover for {{ book.title }}">
+      <img alt="Book Cover for {{ book.title }}" ng-src="{{ book.cover }}">
       <h3 class="title"> {{ book.title }} </h3>
       <p class="author"> {{ book.author }} </p>
     </a>
