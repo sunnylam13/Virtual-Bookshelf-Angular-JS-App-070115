@@ -13,9 +13,8 @@
 */
 
 app.controller('ChapterController', ['$scope', 'books', '$routeParams', function($scope, books, $routeParams) {
-  
+
   books.success(function(data) {
-    // $scope.SERVICENAMEOROTHER = data[$routeParams.id];
 
     // console.log(data);
     // console.log($routeParams);
