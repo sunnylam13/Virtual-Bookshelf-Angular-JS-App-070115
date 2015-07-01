@@ -17,12 +17,34 @@ app.config(function ($routeProvider) {
       controller: 'BookshelfController', 
       templateUrl: 'views/bookshelf.html' 
     }) 
+
+    // ----------------------------------------
+    // BOOK DETAILS  ------------------
+    // ----------------------------------------
     .when('/books/:id',{
-    	// maps the URL /photos/:id to the controller BookController and the template views/book.html
+    	// maps the URL /books/:id to the controller BookController and the template views/book.html
     	// visit localhost... click on a book. A detail page about that book should appear
     	controller: 'BookController', 
     	templateUrl: 'views/book.html' 
     })
+    // ----------------------------------------
+    // END BOOK DETAILS  ------------------
+    // ----------------------------------------
+
+    // ----------------------------------------
+    // CHAPTER DETAILS  ------------------
+    // ----------------------------------------
+    	// specifically first chapter
+    .when('/books/:bookId/chapters/:chapterId',{
+    	// maps the URL /books/:bookId/chapters/:chapterId to the controller BookController and the template views/chapter.html
+    	// visit localhost... click on a book then go inside. A detail page about that chapter should appear
+    	controller: 'ChapterController', 
+    	templateUrl: 'views/chapter.html' 
+    })
+    // ----------------------------------------
+    // END CHAPTER DETAILS  ------------------
+    // ----------------------------------------
+    
     .otherwise({ 
       redirectTo: '/books' 
     }); 
