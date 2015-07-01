@@ -19,10 +19,14 @@ app.controller('ChapterController', ['$scope', 'books', '$routeParams', function
     // console.log(data);
     // console.log($routeParams);
 
+    // this allows you to access the current book
+    // // in the chapter.html you will use book.PROPERTYNAME for chapter specific properties
     // $scope.book = data[$routeParams.id];
     $scope.book = data[$routeParams.bookId];
     // console.log($scope.book);
 
+    // this allows you to access the specific chapter OF the current book... hence using dot notation for $scope.book.chapters[ID#]
+    // in the chapter.html you will use chapter.PROPERTYNAME for chapter specific properties
     $scope.chapter = $scope.book.chapters[$routeParams.chapterId];
 
     // If there no more chapters left, go back to the bookshelf view
