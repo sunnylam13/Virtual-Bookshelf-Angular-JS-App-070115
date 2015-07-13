@@ -33,6 +33,9 @@ app.controller('ChapterController', ['$scope', 'books', '$routeParams', function
     if($routeParams.chapterId >= $scope.book.chapters.length - 1) {
       $scope.nextChapterIndex = "#";
     }
+    // if($routeParams.chapterId >= $scope.chapters.length - 1) {
+    //   $scope.nextChapterIndex = "#";
+    // }
 
     /* 
     * WARNING:  the URL creation variables must be located within 'books.success' or else none of the URL links will work!
