@@ -29,13 +29,10 @@ app.controller('ChapterController', ['$scope', 'books', '$routeParams', function
     // in the chapter.html you will use chapter.PROPERTYNAME for chapter specific properties
     $scope.chapter = $scope.book.chapters[$routeParams.chapterId];
 
-    // If there no more chapters left, go back to the bookshelf view
-    if($routeParams.chapterId >= $scope.book.chapters.length - 1) {
-      $scope.nextChapterIndex = "#";
-    }
-    // if($routeParams.chapterId >= $scope.chapters.length - 1) {
-    //   $scope.nextChapterIndex = "#";
-    // }
+    console.log('The $routeParams.chapterId is %s',$routeParams.chapterId);
+    console.log('The $scope.book.chapters.length is %s', $scope.book.chapters.length - 1);
+
+
 
     /* 
     * WARNING:  the URL creation variables must be located within 'books.success' or else none of the URL links will work!
@@ -51,10 +48,35 @@ app.controller('ChapterController', ['$scope', 'books', '$routeParams', function
       // $scope.currentBookIndex = parseInt($routeParams.id);
 
       $scope.currentChapterIndex = parseInt($routeParams.chapterId);
-      $scope.nextChapterIndex = $scope.currentChapterIndex + 1;
+      // $scope.nextChapterIndex = $scope.currentChapterIndex + 1;
     // ----------------------------------------
     // END URL CREATION  ------------------
     // ----------------------------------------
+    
+    // ----------------------------------------
+    // END OF CHAPTERS CHECK  ------------------
+    // ----------------------------------------
+      /* 
+      * this has to be placed after the URL creation section in order to work...
+      * 
+      */
+
+      // If there no more chapters left, go back to the bookshelf view
+      if($routeParams.chapterId >= $scope.book.chapters.length - 1) {
+        $scope.nextChapterIndex = "#";
+      } else {
+        $scope.nextChapterIndex = $scope.currentChapterIndex + 1;
+      }
+      // the below will not work
+      // if($routeParams.chapterId >= $scope.chapters.length - 1) {
+      //   $scope.nextChapterIndex = "#";
+      // }
+
+    // ----------------------------------------
+    // END END OF CHAPTERS CHECK  ------------------
+    // ----------------------------------------
+    
+
   });
 
   
