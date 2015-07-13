@@ -8,7 +8,8 @@
 		* Remember we can use Angular's $routeParams to retrieve bookId from the URL by using $routeParams.bookId.
 	* Finish the template in views/book.html to display a book's description. Looking at the format of the data in books API given above, display a book's cover, title, author, and description.
 	* View the result in the browser. When you click on a book, a view is constructed by injecting views/book.html into the <div ng-view></div> in index.html.
-* 
+*
+* this controller needs access the 'books' service in books.js so you need to include it in the options... 
 */
 
 app.controller('BookController', ['$scope', 'books' ,'$routeParams', function($scope, books, $routeParams) {
