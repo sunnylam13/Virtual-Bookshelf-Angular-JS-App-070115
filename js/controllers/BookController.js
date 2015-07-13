@@ -23,9 +23,16 @@ app.controller('BookController', ['$scope', 'books' ,'$routeParams', function($s
 	  // console.log($routeParams);
 	});
 
-  // Using this property to create the URL in line 9 of views/book.html
-  // where the id retrieved is originally a string
-  $scope.currentBookIndex = parseInt($routeParams.bookId);
+	// ----------------------------------------
+	// URL CREATION VARIABLES  ------------------
+	// ----------------------------------------
+		// Using this property to create the URL in line 9 of views/book.html
+		// where the id retrieved is originally a string
+		$scope.currentBookIndex = parseInt($routeParams.bookId);
+	// ----------------------------------------
+	// END URL CREATION VARIABLES  ------------------
+	// ----------------------------------------
+	
   
 }]);
 
