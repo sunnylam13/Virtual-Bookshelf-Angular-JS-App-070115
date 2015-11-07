@@ -13,10 +13,16 @@ var app = angular.module('ReaderApp', ['ngRoute']);
 // define the app's routes
 app.config(function ($routeProvider) { 
   $routeProvider 
-    .when('/books', { 
-      controller: 'BookshelfController', 
-      templateUrl: 'views/bookshelf.html' 
-    }) 
+    // ----------------------------------------
+    // BOOK SHELF DISPLAY  ------------------
+    // ----------------------------------------
+        .when('/books', { 
+          controller: 'BookshelfController', 
+          templateUrl: 'views/bookshelf.html' 
+        }) 
+    // ----------------------------------------
+    // END BOOK SHELF DISPLAY  ------------------
+    // ----------------------------------------
 
     // ----------------------------------------
     // BOOK DETAILS  ------------------
