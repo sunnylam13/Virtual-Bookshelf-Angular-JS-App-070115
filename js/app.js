@@ -16,6 +16,11 @@ app.config(function ($routeProvider) {
     // ----------------------------------------
     // BOOK SHELF DISPLAY  ------------------
     // ----------------------------------------
+        /* 
+        * EXAMPLE:  http://localhost/angular-js/angular.js.code.academy062515/reader.1/#/books/
+        * 
+        */
+
         .when('/books', { 
           controller: 'BookshelfController', 
           templateUrl: 'views/bookshelf.html' 
@@ -27,6 +32,12 @@ app.config(function ($routeProvider) {
     // ----------------------------------------
     // BOOK DETAILS  ------------------
     // ----------------------------------------
+        /* 
+        * EXAMPLE:  URL...
+            * http://localhost/angular-js/angular.js.code.academy062515/reader.1/#/books/0
+        * 
+        */
+
 	    .when('/books/:bookId',{
 	    	// maps the URL /books/:id to the controller BookController and the template views/book.html
 	    	// visit localhost... click on a book. A detail page about that book should appear

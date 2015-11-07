@@ -9,6 +9,8 @@
   <!-- 
   TODO: Loop through chapter.paragraphs and display each one with this HTML
   <p>{{ paragraph }}</p>
+  where chapters is a child object within book...  while paragraphs is a sub object within chapters...
+  the paragraph text is then shown using the Angular expression {{ paragraph}}... which is the temporary variable used in `paragraph in chapter.paragraphs`...
   -->
   
 	<p ng-repeat="paragraph in chapter.paragraphs">{{ paragraph }}</p>
